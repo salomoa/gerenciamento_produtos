@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = {"/livros", "/livros/"})
-public class LivroController {
+@RequestMapping(path = {"/produtos", "/produtos/"})
+public class ProdutoController {
 
     @Autowired
     private ProdutoService produtoService;
