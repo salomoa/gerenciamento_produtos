@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "TB_LIVRO")
+@Table(name = "TB_PRODUTO")
 public class ProdutoModel {
 
     @Id
@@ -23,7 +23,7 @@ public class ProdutoModel {
         this.id = id;
     }
 
-    @Column(name = "escritor")
+    @Column(name = "preco_do_produto")
     public BigDecimal getPreco() { return preco; }
 
     public void setPreco(BigDecimal preco) { this.preco = preco; }
@@ -32,7 +32,7 @@ public class ProdutoModel {
 
     public void setNome(String nome) { this.nome = nome; }
 
-    @Column(name = "ano_pub")
+    @Column(name = "quant_estoque")
     public Integer getEstoque() { return estoque; }
 
     public void setEstoque(Integer estoque) { this.estoque = estoque; }

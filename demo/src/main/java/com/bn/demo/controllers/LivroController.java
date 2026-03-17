@@ -1,7 +1,7 @@
 package com.bn.demo.controllers;
 
 import com.bn.demo.models.ProdutoModel;
-import com.bn.demo.services.LivroService;
+import com.bn.demo.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,17 +16,17 @@ import java.util.Optional;
 public class LivroController {
 
     @Autowired
-    private LivroService livroService;
+    private ProdutoService produtoService;
 
     @GetMapping
         public ResponseEntity<List<ProdutoModel> > findAll(){
-          List<ProdutoModel> requeste = livroService.findAll();
+          List<ProdutoModel> requeste = produtoService.findAll();
         return ResponseEntity.ok().body(requeste);
     }
 
     @PostMapping
     public ResponseEntity <ProdutoModel> criarPessoa(@RequestBody ProdutoModel produtoModel){
-        ProdutoModel requeste = livroService.criarPessoa(produtoModel);
+        ProdutoModel requeste = produtoService.criarPessoa(produtoModel);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri()
                 .path("/{id}").buildAndExpand(produtoModel.getId())
                 .toUri();
@@ -35,18 +35,18 @@ public class LivroController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deletar (@PathVariable Long id){
-        livroService.deletar(id);
+        produtoService.deletar(id);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/{id}")
     public Optional<ProdutoModel> buscarId(@PathVariable Long id){
-        return  livroService.buscarid(id);
+        return  produtoService.buscarid(id);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity <ProdutoModel> atualizar(@PathVariable Long id, @RequestBody ProdutoModel ProdutoModel){
-        ProdutoModel requeste = livroService.atualizar(id, ProdutoModel);
+        ProdutoModel requeste = produtoService.atualizar(id, ProdutoModel);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri()
                 .path("/{id}").buildAndExpand(ProdutoModel.getId())
                 .toUri();

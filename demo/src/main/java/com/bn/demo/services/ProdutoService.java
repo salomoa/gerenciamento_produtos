@@ -1,7 +1,7 @@
 package com.bn.demo.services;
 
 import com.bn.demo.models.ProdutoModel;
-import com.bn.demo.repositories.LivroRepository;
+import com.bn.demo.repositories.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,33 +9,33 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class LivroService {
+public class ProdutoService {
 
     @Autowired
-    private LivroRepository livroRepository;
+    private ProdutoRepository produtoRepository;
 
     public List<ProdutoModel> findAll(){
-        return  livroRepository.findAll();
+        return  produtoRepository.findAll();
     }
 
     public ProdutoModel criarPessoa(ProdutoModel produtoModel){
-        return  livroRepository.save(produtoModel);
+        return  produtoRepository.save(produtoModel);
     }
 
     public Optional<ProdutoModel> buscarid(Long id){
-        return  livroRepository.findById(id);
+        return  produtoRepository.findById(id);
     }
 
     public ProdutoModel atualizar(Long id, ProdutoModel produtoModel){
-        ProdutoModel model = livroRepository.findById(id).get();
+        ProdutoModel model = produtoRepository.findById(id).get();
         model.setPreco(produtoModel.getPreco());
         model.setEstoque(produtoModel.getEstoque());
         model.setNome(produtoModel.getNome());
-        return livroRepository.save(model);
+        return produtoRepository.save(model);
     }
 
     public void deletar(Long id){
-        livroRepository.deleteById(id);
+        produtoRepository.deleteById(id);
     }
 
 }
