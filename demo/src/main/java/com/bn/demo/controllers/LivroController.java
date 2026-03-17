@@ -1,6 +1,6 @@
 package com.bn.demo.controllers;
 
-import com.bn.demo.models.LivroModel;
+import com.bn.demo.models.ProdutoModel;
 import com.bn.demo.services.LivroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,16 +19,16 @@ public class LivroController {
     private LivroService livroService;
 
     @GetMapping
-        public ResponseEntity<List<LivroModel> > findAll(){
-          List<LivroModel> requeste = livroService.findAll();
+        public ResponseEntity<List<ProdutoModel> > findAll(){
+          List<ProdutoModel> requeste = livroService.findAll();
         return ResponseEntity.ok().body(requeste);
     }
 
     @PostMapping
-    public ResponseEntity <LivroModel> criarPessoa(@RequestBody LivroModel livroModel){
-        LivroModel requeste = livroService.criarPessoa(livroModel);
+    public ResponseEntity <ProdutoModel> criarPessoa(@RequestBody ProdutoModel produtoModel){
+        ProdutoModel requeste = livroService.criarPessoa(produtoModel);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri()
-                .path("/{id}").buildAndExpand(livroModel.getId())
+                .path("/{id}").buildAndExpand(produtoModel.getId())
                 .toUri();
         return  ResponseEntity.created(uri).body(requeste);
     }
@@ -40,15 +40,15 @@ public class LivroController {
     }
 
     @GetMapping("/{id}")
-    public Optional<LivroModel> buscarId(@PathVariable Long id){
+    public Optional<ProdutoModel> buscarId(@PathVariable Long id){
         return  livroService.buscarid(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity <LivroModel> atualizar(@PathVariable Long id, @RequestBody LivroModel LivroModel){
-        LivroModel requeste = livroService.atualizar(id, LivroModel);
+    public ResponseEntity <ProdutoModel> atualizar(@PathVariable Long id, @RequestBody ProdutoModel ProdutoModel){
+        ProdutoModel requeste = livroService.atualizar(id, ProdutoModel);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri()
-                .path("/{id}").buildAndExpand(LivroModel.getId())
+                .path("/{id}").buildAndExpand(ProdutoModel.getId())
                 .toUri();
         return  ResponseEntity.created(uri).body(requeste);
 

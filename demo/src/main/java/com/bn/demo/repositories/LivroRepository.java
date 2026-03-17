@@ -1,7 +1,7 @@
 package com.bn.demo.repositories;
 
-import com.bn.demo.models.LivroModel;
+import com.bn.demo.models.ProdutoModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface LivroRepository extends JpaRepository<LivroModel, Long> {
+public interface LivroRepository extends JpaRepository<ProdutoModel, Long> {
 }
