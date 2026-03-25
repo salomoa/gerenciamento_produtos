@@ -12,7 +12,9 @@ public class ProdutoModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+    @Column(name = "preco_do_produto")
     private BigDecimal preco;
+    @Column(name = "quant_estoque")
     private Integer estoque;
 
     public Long getId() {
@@ -23,7 +25,6 @@ public class ProdutoModel {
         this.id = id;
     }
 
-    @Column(name = "preco_do_produto")
     public BigDecimal getPreco() { return preco; }
 
     public void setPreco(BigDecimal preco) { this.preco = preco; }
@@ -32,7 +33,6 @@ public class ProdutoModel {
 
     public void setNome(String nome) { this.nome = nome; }
 
-    @Column(name = "quant_estoque")
     public Integer getEstoque() { return estoque; }
 
     public void setEstoque(Integer estoque) { this.estoque = estoque; }
