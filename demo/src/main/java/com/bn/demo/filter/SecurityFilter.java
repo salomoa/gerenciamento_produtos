@@ -19,7 +19,7 @@ public class SecurityFilter {
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers(HttpMethod.GET, "/produtos").permitAll()
-                            .requestMatchers(HttpMethod.POST, "/produtos").permitAll()
+                            .requestMatchers(HttpMethod.POST, "/produtos").hasRole("ADMIN")
                             .requestMatchers(HttpMethod.DELETE, "/produtos/**").permitAll()
                             .requestMatchers(HttpMethod.GET, "/produtos/**").permitAll()
                             .anyRequest().authenticated()
