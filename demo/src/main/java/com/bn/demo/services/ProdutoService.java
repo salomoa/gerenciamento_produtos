@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Service // declara que a classe e um servico
 public class ProdutoService implements UserDetailsService {
 
-    @Autowired
+    @Autowired // adicionar dependencias automaticamente
     private ProdutoRepository produtoRepository;
 
     public List<ProdutoModel> buscarTodosProdutos(){
@@ -41,7 +41,7 @@ public class ProdutoService implements UserDetailsService {
         produtoRepository.deleteById(id);
     }
 
-    @Override
+    @Override // o Override permite que o metodo sobrescreva algo utilizado no metodo por outra classe
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return  produtoRepository.findByLogin(username);
     }

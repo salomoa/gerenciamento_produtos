@@ -5,17 +5,17 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
-@Entity
-@Table(name = "TB_PRODUTO")
+@Entity // para criar no banco
+@Table(name = "TB_PRODUTO") // Nome da tabela no banco
 public class ProdutoModel {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // Declaração do ID e como ele será gerado
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // metodo de geração do id
     private Long id;
     private String nome;
-    @Column(name = "preco_do_produto")
+    @Column(name = "preco_do_produto") // nome da coluna na tabela
     private BigDecimal preco;
-    @Column(name = "quant_estoque")
+    @Column(name = "quant_estoque") // nome da coluna na tabela
     private Integer estoque;
     private String login;
     private String password;
